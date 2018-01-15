@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create new movie</title>
+</head>
+<body>
+	<form action="{{url_for('create_movie')}}" method = 'POST'>
+		<p>Actor/Actress Name</p>
+		<input type="text" name="actor_name">
+		<br>
+		<br>
+		<p>Movie_Name:</p>
+		<input type='text' size='30' name='movies'>
+		<br>
+		<input type='submit' value='Create'>
+	</form>
+</body>
+</html>

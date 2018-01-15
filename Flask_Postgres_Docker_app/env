@@ -1,0 +1,3 @@
+POSTGRES_USER=saranya
+POSTGRES_DATABASE=movie_db
+POSTGRES_PASSWD=mynewpassword
