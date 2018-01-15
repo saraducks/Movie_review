@@ -4,6 +4,7 @@ from models import User
 
 app = Flask(__name__)
 
+# create a new row in the movie table 
 @app.route('/main/createnewmovie', methods=['GET', 'POST'])
 def create_movie():
 	if request.method == 'POST':
