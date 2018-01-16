@@ -1,11 +1,13 @@
 FROM python:3.6.1
 
-COPY requirements.txt /
-RUN pip install -r ./requirements.txt
+RUN mkdir -p /app
 
-COPY My_app/ /app/
+COPY requirements.txt /app
 WORKDIR /app
 
-ENV FLASK_APP=app.py
+RUN pip install -r requirements.txt
+
+COPY . /app/
+
 EXPOSE 5000
-CMD flask run 
+CMD ["python", "./Flask_Postgres_Docker_app/app.py"]
