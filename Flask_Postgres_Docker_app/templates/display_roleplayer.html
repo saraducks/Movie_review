@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>role</title>
+</head>
+<body>
+  {% for i in display %} 
+     <p> {{ i.name }} </p>
+  {% endfor %}
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Movie description</title>
+</head>
+<style type="text/css">
+  table, th, td {
+   border: 1px solid black;
+ }
+</style>
+<body>
+  <table>
+      <tr>
+        <th> Moviename </th>
+        <th> Release year </th>
+        <th> IMDB </th>
+      </tr>
+  {% for i in display %}
+        <tr>
+          <td> {{ i.moviename }} </td>
+          <td> {{ i.movie_releaseyear }} </td>
+          <td><a href="Imdb link">{{ i.movie_imdb }}</a></td>
+        </tr>
+  {% endfor %}
+  </table>
+</body>
+</html> -->

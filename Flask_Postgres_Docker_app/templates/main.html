@@ -5,12 +5,16 @@
 </head>
 <body>
 	<form action="{{url_for('create_movie')}}" method = 'POST'>
-		<p>Actor/Actress Name</p>
+		<p>Role Name</p>
 		<input type="text" name="actor_name">
 		<br>
 		<br>
 		<p>Movie_Name:</p>
-		<input type='text' size='30' name='movies'>
+		<input type='text' size='30' name='movie-name'>
+		<p>Release Year:</p>
+		<input type="text" size='30' name="release-year">
+		<p>Imdb link</p>
+		<input type="text" size='500' name="imdb-link">
 		<br>
 		<input type='submit' value='Create'>
 	</form>
