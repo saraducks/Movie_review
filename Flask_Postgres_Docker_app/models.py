@@ -22,7 +22,7 @@ import psycopg2
 #         port1=port,
 #         db1=db))
 
-engine = create_engine('postgresql://saranya:mynewpassword@localhost/movie_db')
+engine = create_engine('postgresql://<YOUR_USERNAME>:<YOUR_PASSWD>@localhost/<YOUR_DB>')
 # bind the postgres to the session 
 Session = sessionmaker(bind=engine)
 multi_thrdconn = scoped_session(Session)
