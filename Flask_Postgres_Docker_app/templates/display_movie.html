@@ -12,14 +12,18 @@
 	<table>
 	    <tr>
 	    	<th> Moviename </th>
+	    	<th> Ratings </th>
 	    	<th> Release year </th>
+	    	<th> Votes </th>
 	    	<th> IMDB </th>
 	    </tr>
 	{% for i in display %}
         <tr>
-        	<td> {{ i.moviename }} </td>
+        	<td> {{ i.movie_title }} </td>
+        	<td> {{ i.movie_rating }} </td>
         	<td> {{ i.movie_releaseyear }} </td>
-        	<td><a href="Imdb link">{{ i.movie_imdb }}</a></td>
+            <td> {{ i.movie_votes }} </td>
+            <td>  <form type="submit" method="POST"><a href="{{url_for('imdbpage',movieimdb_id=i.movieimdbid)}}">{{ "IMDB link" }}</a></form></td>
         </tr>
 	{% endfor %}
 	</table>
