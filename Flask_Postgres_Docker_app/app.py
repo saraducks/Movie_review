@@ -85,20 +85,19 @@ def displayrole_api(searchrole):
 
 	if get_role_name_count > 0:                                                         #if the count is greater than 0, then result exists and extract the movie based on the role player acted columnresult
 		json_string = {"Role Player":[], "Movies acted":[]}
+		for i in get_role_name:
+			json_string["Role Player"].append([{"Name": i.name, "Birthyear":i.birthyear, "primaryprofession":i.primaryprofession}])
         
-        for i in get_role_name:
-        	json_string["Role Player"].append([{"Name": i.name, "Birthyear":i.birthyear, "primaryprofession":i.primaryprofession}])
-        
-        get_movies_acted = session.execute("SELECT movies_acted FROM roleplayer WHERE name='%s';" % (searchrole))
+		get_movies_acted = session.execute("SELECT movies_acted FROM roleplayer WHERE name='%s';" % (searchrole))
 
-        for k in get_movies_acted:
-	    	res = k[0].split(',')
-	    	for i in res:
-	    		acted_movies_count = session.execute("SELECT * FROM movie1 WHERE movieimdbid='%s';" % (i)).scalar()
-	    		if acted_movies_count > 0:
-	    			acted_movies = session.execute("SELECT * FROM movie1 WHERE movieimdbid='%s';" % (i.encode("utf-8")))
-	    			for cols in acted_movies:
-	    				json_string["Movies acted"].append([{'Title':cols.movie_title, 'imdb_id':cols.movieimdbid, 'Released_on':cols.movie_releaseyear, 'Ratings':cols.movie_rating,'votes':cols.movie_votes}])
+		for k in get_movies_acted:
+			res = k[0].split(',')
+			for i in res:
+				acted_movies_count = session.execute("SELECT * FROM movie1 WHERE movieimdbid='%s';" % (i)).scalar()
+				if acted_movies_count > 0:
+					acted_movies = session.execute("SELECT * FROM movie1 WHERE movieimdbid='%s';" % (i.encode("utf-8")))
+					for cols in acted_movies:
+						json_string["Movies acted"].append([{'Title':cols.movie_title, 'imdb_id':cols.movieimdbid, 'Released_on':cols.movie_releaseyear, 'Ratings':cols.movie_rating,'votes':cols.movie_votes}])
 			
 		return jsonify(json_string)
 	else:
